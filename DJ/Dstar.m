@@ -32,22 +32,28 @@ color_list = [white; black; green; yellow; red; blue; cyan];
 colormap(color_list);
 
 %% listes initialize
-MapSize = size(Map);
+%size(Map) return the matrix Row and col; eg: [row, col]
+MapSize = size(Map);  
 
 % create map
+% logical(Map)£º Convert the matrix to logical matrix (only 0 and 1) 
 logical_map = logical(Map);
 map = zeros(MapSize(1),MapSize(2));
 map(logical_map) = 2;
 map(~logical_map) = 1;
 
 % create node_cost_list
+% Inf(MapSize(1), MapSize(2)) : creat an all infinity matrix
 node_cost_list = Inf(MapSize(1), MapSize(2));
 node_cost_list(origin(1), origin(2)) = 0;	% set the node_cost of the origin node zero
 
 % create parent_list
 parent_list = zeros(MapSize(1), MapSize(2));
 
+%sub2ind: A function that retrieves the matrix index number
+% Target point index
 destination_index = sub2ind(MapSize, destination(1), destination(2));
+% origin point index
 origin_index = sub2ind(MapSize, origin(1), origin(2));
 
 plan_succeeded = false;
@@ -62,9 +68,10 @@ while true
     set(gca,'ytick',1:1:MapSize(1));
 	axis image;
 	drawnow;
-
-	[min_node_cost, current_node_index] = min(node_cost_list(:));
-	if(min_node_cost == inf || current_node_index == destination_index)
+    % min_node_cost: the value of the index ;
+    %current_node_index: the index
+	[min_node_cost, current_node_index] = min(node_cost_list(:)); 
+    if(min_node_cost == inf || current_node_index == destination_index)
 		plan_succeeded = true;
 		break;
     end
@@ -95,7 +102,7 @@ while true
                 end
             end
         end
-	end
+    end
 end
 
 if(plan_succeeded)
