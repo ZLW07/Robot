@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<robot name="Staubli">
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <mesh filename="../model/1.STL"/>
+            </geometry>
+            <origin  xyz="0 0 0"
+			rpy="0 0 0"/>
+            <material name="Red">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"
+			rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../model/1.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <link name="link_1">
+        <visual>
+            <geometry>
+                <mesh filename="../model/2.STL"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <material name="Red">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../model/2.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="BaseToLink_1" type="continuous">
+        <parent link="base_link"/>
+        <child link="link_1"/>
+        <origin xyz="0 0 0.375" rpy="-1.57 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="300" velocity="1" lower="-2.96" upper="2.96"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <link name="link_2">
+        <visual>
+            <geometry>
+                <mesh filename="../model\3.STL"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="red">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyx="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../model\3.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Link_1ToLink_2" type="continuous">
+        <parent link="link_1"/>
+        <child link="link_2"/>
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="300" velocity="1" lower="-2.96" upper="2.96"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <link name="link_3">
+        <visual>
+            <geometry>
+                <mesh filename="../model\4.STL"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="Red">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyx="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../model/4.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Link_2ToLink_3" type="continuous">
+        <parent link="link_2"/>
+        <child link="link_3"/>
+        <origin xyz="0 -0.4 0.02" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="300" velocity="1" lower="-2.96" upper="2.96"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <link name="link_4">
+        <visual>
+            <geometry>
+                <mesh filename="../model\5.STL"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="Red">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyx="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../model/5.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Link_3ToLink_4" type="continuous">
+        <parent link="link_3"/>
+        <child link="link_4"/>
+        <origin xyz="0 0 0" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="link_5">
+        <visual>
+            <geometry>
+                <mesh filename="../model/6.STL"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="Red">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyx="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../model/6.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Link_4ToLink_5" type="continuous">
+        <parent link="link_4"/>
+        <child link="link_5"/>
+        <origin xyz="0 0 0.45" rpy="-1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="300" velocity="1" lower="-2.96" upper="2.96"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+    <link name="link_6">
+        <visual>
+            <geometry>
+                <mesh filename="../model/7.STL"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <material name="Red">
+                <color rgba="1 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyx="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="../model/7.STL"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Link_5ToLink_6" type="continuous">
+        <parent link="link_5"/>
+        <child link="link_6"/>
+        <origin xyz="0 -0.07 0" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="300" velocity="1" lower="-2.96" upper="2.96"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+</robot>
