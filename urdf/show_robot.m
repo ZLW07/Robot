@@ -15,25 +15,24 @@ points =(center + radius*[cos(theta) sin(theta) zeros(size(theta))])';
 hold on
 plot3(points(1,:),points(2,:),points(3,:),'r')
 ik = robotics.InverseKinematics('RigidBodyTree',robot);
-weights = [0.1 0.1 0 1 1 1]; %权重
+weights = [0.1 0.1 0 1 1 1]; %
 qInitial = robot.homeConfiguration;
 %%
-%通过点的轨迹循环来跟踪圆。调用每个点的ik对象以生成实现末端位置的关节配置，存储要稍后使用的逆解结果。
 for i = 1:size(points,2)
 % Solve for the configuration satisfying the desired end effector
-tform = rpy2tr(3.0,-3.14, 3.14);%姿态齐次矩阵
-tform = trvec2tform(points(:,i)')*tform ;%末端位姿齐次矩阵
-qSol(i,:) = ik('link_6',tform,weights,qInitial);%求解各关节角度
+tform = rpy2tr(3.0,-3.14, 3.14);%
+tform = trvec2tform(points(:,i)')*tform ;%
+qSol(i,:) = ik('link_6',tform,weights,qInitial);%
 % Start from prior solution
 qInitial = qSol(i,:);
 end
-%% 动画显示
+
 title('robot move follow the trajectory')
 hold on
 axis([-0.8 0.8 -0.8 0.85 0 1.3]);
 for i = 1:size(points,2)
-show(robot,qSol(i,:)','PreservePlot',false);%false改为true时，留下重影。
-pause(0.1)
+show(robot,qSol(i,:)','PreservePlot',false);%
+% pause(0.01)
 plot3(points(1,i),points(2,i),points(3,i),'.','LineWidth',1);
 end
 hold off
