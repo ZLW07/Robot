@@ -1,6 +1,6 @@
 clear
 clc
-robot = importrobot('C:\Users\wei.zhang07\Desktop\urdf\urdf\robot_model.urdf');
+robot = importrobot('F:\Project\matlab\Robot\urdf\urdf\robot_model.urdf');
 q   = [6.0513-pi  -1.2767+pi/2    0.1328   -3.2572+pi/2   -0.0698    0.7795];
 show(robot);
 axes.CameraPositionMode = 'auto';
@@ -32,7 +32,7 @@ hold on
 axis([-0.8 0.8 -0.8 0.85 0 1.3]);
 for i = 1:size(points,2)
 show(robot,qSol(i,:)','PreservePlot',false);%
-% pause(0.01)
+pause(0.1)
 plot3(points(1,i),points(2,i),points(3,i),'.','LineWidth',1);
 end
 hold off
