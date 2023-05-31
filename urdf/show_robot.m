@@ -3,6 +3,13 @@ clc
 robot = importrobot('F:\Project\matlab\Robot\urdf\urdf\robot_model.urdf');
 q   = [6.0513-pi  -1.2767+pi/2    0.1328   -3.2572+pi/2   -0.0698    0.7795];
 show(robot);
+robot = importrobot('E:\Project\MatlabProject\urdf\urdf\robot_model.urdf');
+robot.DataFormat = 'row'
+q = robot.homeConfiguration;
+q(3) = 3.14;
+[r1,r2,r3] = robot.checkCollision(q,'SkippedSelfCollisions','parent');
+show(robot,q);
+
 axes.CameraPositionMode = 'auto';
 %% Define the trajectory as a circle with a radius of 0.15
 t = (0:0.2:20)';
@@ -16,7 +23,7 @@ hold on
 plot3(points(1,:),points(2,:),points(3,:),'r')
 ik = robotics.InverseKinematics('RigidBodyTree',robot);
 weights = [0.1 0.1 0 1 1 1]; %
-qInitial = robot.homeConfiguration;
+
 %%
 for i = 1:size(points,2)
 % Solve for the configuration satisfying the desired end effector
