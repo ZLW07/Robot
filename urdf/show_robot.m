@@ -1,5 +1,8 @@
 clear
 clc
+robot = importrobot('F:\Project\matlab\Robot\urdf\urdf\robot_model.urdf');
+q   = [6.0513-pi  -1.2767+pi/2    0.1328   -3.2572+pi/2   -0.0698    0.7795];
+show(robot);
 robot = importrobot('E:\Project\MatlabProject\urdf\urdf\robot_model.urdf');
 robot.DataFormat = 'column'
 q = robot.homeConfiguration;
