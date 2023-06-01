@@ -1,11 +1,16 @@
 clear
 clc
 robot = importrobot('E:\Project\MatlabProject\urdf\urdf\robot_model.urdf');
-robot.DataFormat = 'row'
+robot.DataFormat = 'column'
 q = robot.homeConfiguration;
-q(3) = 3.14;
-[r1,r2,r3] = robot.checkCollision(q,'SkippedSelfCollisions','parent');
+% q(6) = 3.14;
+% q(1) = 0;
+% [r1,r2,r3] = robot.checkCollision(q,'SkippedSelfCollisions','parent');
+
+startConfig = [3.8906 1.1924 0.0000 0.0000 0.0001 1.9454];
+trans = getTransform(robot,q,"link_6","base_link");
 show(robot,q);
+ axis equal;
 
 axes.CameraPositionMode = 'auto';
 %% Define the trajectory as a circle with a radius of 0.15
