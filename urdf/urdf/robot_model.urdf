@@ -34,7 +34,7 @@
             </geometry>
         </collision>
     </link>
-    <joint name="Joint_1" type="continuous ">
+    <joint name="Joint_1" type="continuous">
         <parent link="base_link"/>
         <child link="link_1"/>
         <origin xyz="0 0 0.375" rpy="-1.57 0 0"/>

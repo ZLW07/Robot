@@ -47,6 +47,6 @@ ax = exampleHelperVisualizeCollisionEnvironment(worldCollisionArray);
 % Add the robotconfigurations & highlight the colliding bodies.
 show(StubiRobot,q(:,collidingIdx1),"Parent",ax,"PreservePlot",false);
 exampleHelperHighlightCollisionBodies(StubiRobot,collidingBodies1 + 1,ax);
-show(StubiRobot,q(:,collidingIdx2),"Parent"',ax);
+show(StubiRobot,q(:,collidingIdx2),"Parent",ax);
 exampleHelperHighlightCollisionBodies(StubiRobot,collidingBodies2 + 1,ax);
 
