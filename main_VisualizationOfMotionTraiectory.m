@@ -1,9 +1,9 @@
 clc
 clear
-addpath('APF\','Model\','AStar\','DJ\','PRM\','RRT\','urdf\')
+addpath('APF\','Model\','AStar\','DJ\','PRM\','RRT\','urdf\','Data\')
 StubiRobot = LoadRobotModel('urdf\urdf\robot_model.urdf');
 
-filename = 'C:\Users\wei.zhang07\Desktop\JointsPath.txt';
+filename = 'RRTTraj.txt';
 delimiter = ','; % 分隔符
 headerlines = 0; % 跳过的行数
 data = dlmread(filename, delimiter, headerlines, 0);
