@@ -1,11 +1,12 @@
 <?xml version="1.0" ?>
 <robot name="Staubli">
+    <link name="Ground"/>
     <link name="base_link">
         <visual>
             <geometry>
                 <mesh filename="../model/1.STL"/>
             </geometry>
-            <origin  xyz="0 0 0" rpy="0 0 0"/>
+            <origin  xyz="0 0 -0.375" rpy="0 0 0"/>
             <material name="Red">
                 <color rgba="1 0 0 1"/>
             </material>
@@ -17,6 +18,14 @@
             </geometry>
         </collision>
     </link>
+<joint name="BaseJoint" type="fixed">
+        <parent link="Ground"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="300" velocity="1" lower="-2.96" upper="2.96"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
     <link name="link_1">
         <visual>
             <geometry>
@@ -37,7 +46,7 @@
     <joint name="Joint_1" type="continuous">
         <parent link="base_link"/>
         <child link="link_1"/>
-        <origin xyz="0 0 0.375" rpy="-1.5707963 0 0"/>
+        <origin xyz="0 0 0" rpy="-1.5707963 0 0"/>
         <axis xyz="0 1 0"/>
         <limit effort="300" velocity="1" lower="-2.96" upper="2.96"/>
         <dynamics damping="50" friction="1"/>
