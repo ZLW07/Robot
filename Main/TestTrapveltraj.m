@@ -1,6 +1,6 @@
 clc
 clear
-addpath('APF\','Model\','AStar\','DJ\','PRM\','RRT\','urdf\')
+addpath('Model\','urdf\')
 StubiRobot = LoadRobotModel('urdf\urdf\robot_model.urdf');
 startConfig = [3.8906 1.1924 0.0000 0.0000 0.0001 1.9454]';
 endConfig = [-0.9240 1.2703 1.9865 1.2394 1.7457 -2.0500]';

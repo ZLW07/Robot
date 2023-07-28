@@ -1,6 +1,6 @@
 clc
 clear
-addpath('APF\','Model\','AStar\','DJ\','PRM\','RRT\','urdf\','Data\')
+addpath('Model\','urdf\','Data\')
 StubiRobot = LoadRobotModel('urdf\urdf\robot_model.urdf');
 
 filename = 'RRTTraj.txt';

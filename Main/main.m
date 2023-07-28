@@ -1,6 +1,6 @@
 clc
 clear
-addpath('APF\','Model\','AStar\','DJ\','PRM\','RRT\','urdf\')
+addpath('Model\','urdf\')
 StubiRobot = LoadRobotModel('urdf\urdf\robot_model.urdf');
 vertices =stlread('urdf\model\BallR100mm.stl');
 ball = collisionMesh(vertices.Points);
