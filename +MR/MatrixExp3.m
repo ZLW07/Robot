@@ -15,11 +15,11 @@ function  R = MatrixExp3(so3mat)
 %   -0.1920   -0.3038    0.9332
 %    0.6930    0.6313    0.3481
 
-omgtheta = so3ToVec(so3mat);
-if NearZero(norm(omgtheta))
+omgtheta = MR.so3ToVec(so3mat);
+if MR.NearZero(norm(omgtheta))
     R = eye(3);
 else
-    [omghat, theta] = AxisAng3(omgtheta);
+    [omghat, theta] = MR.AxisAng3(omgtheta);
     omgmat = so3mat / theta;
     R = eye(3) + sin(theta) * omgmat + (1 - cos(theta)) * omgmat * omgmat;
 end

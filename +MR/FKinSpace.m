@@ -26,6 +26,6 @@ function T = FKinSpace(M, Slist, thetalist)
 
 T = M;
 for i = size(thetalist): -1: 1
-    T = MatrixExp6(VecTose3(Slist(:, i) * thetalist(i))) * T;
+    T = MR.MatrixExp6(MR.VecTose3(Slist(:, i) * thetalist(i))) * T;
 end
 end
