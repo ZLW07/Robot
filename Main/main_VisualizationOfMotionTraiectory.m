@@ -4,10 +4,7 @@ addpath('Model\','urdf\','Data\')
 StubiRobot = LoadRobotModel('urdf\urdf\robot_model.urdf');
 
 filename = 'RRTTraj.txt';
-delimiter = ','; % 分隔符
-headerlines = 0; % 跳过的行数
-data = dlmread(filename, delimiter, headerlines, 0);
-
+data = readmatrix(filename);
 figure(1);
 axis equal;
 clf;
