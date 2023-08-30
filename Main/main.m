@@ -1,6 +1,6 @@
 clc
 clear
-addpath('Model\','urdf\')
+addpath('Model\','urdf\','VisualizeModel\')
 StubiRobot = LoadRobotModel('urdf\urdf\robot_model.urdf');
 vertices =stlread('urdf\model\BallR100mm.stl');
 ball = collisionMesh(vertices.Points);
