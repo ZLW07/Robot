@@ -44,17 +44,20 @@ end
 
 Point = [];
 index = 1;
-for jii = 1:3
-    for ji = 1:2
-        vpt = Plane_Axis(jii,1)*Cylinder_Axis(ji,1) + Plane_Axis(jii,2)*Cylinder_Axis(ji,2) + Plane_Axis(jii,3)*Cylinder_Axis(ji,3);
-        t = ((Plane_Point(jii,1) - Cylinder_Point(ji,1)*Plane_Axis(jii,1)) ...
-        + (Plane_Point(jii,2) - Cylinder_Point(ji,2)*Plane_Axis(jii,2)) ...
-        + (Plane_Point(jii,3) - Cylinder_Point(ji,3)*Plane_Axis(jii,3)))/vpt;
-
-        Point(index,1) = Cylinder_Point(ji,1) + Cylinder_Axis(ji,1)*t;
-        Point(index,2) = Cylinder_Point(ji,2) + Cylinder_Axis(ji,2)*t;
-        Point(index,3) = Cylinder_Point(ji,3) + Cylinder_Axis(ji,3)*t;
-        index = index+1;
+for number = 0: length(Plane_Point)/3 -1
+    for jii = 1:3
+        for ji = 1:2
+            vpt = Plane_Axis(jii +number*3,1)*Cylinder_Axis(ji +number*2,1) + Plane_Axis(jii +number*3,2)*Cylinder_Axis(ji+number*2,2) ...
+                + Plane_Axis(jii +number*3,3)*Cylinder_Axis(ji+number*2,3);
+            t = ((Plane_Point(jii +number*3,1) - Cylinder_Point(ji+number*2,1)*Plane_Axis(jii +number*3,1)) ...
+            + (Plane_Point(jii +number*3,2) - Cylinder_Point(ji+number*2,2)*Plane_Axis(jii +number*3,2)) ...
+            + (Plane_Point(jii +number*3,3) - Cylinder_Point(ji+number*2,3)*Plane_Axis(jii +number*3,3)))/vpt;
+    
+            Point(index,1) = Cylinder_Point(ji+number*2,1) + Cylinder_Axis(ji+number*2,1)*t;
+            Point(index,2) = Cylinder_Point(ji+number*2,2) + Cylinder_Axis(ji+number*2,2)*t;
+            Point(index,3) = Cylinder_Point(ji+number*2,3) + Cylinder_Axis(ji+number*2,3)*t;
+            index = index+1;
+        end
     end
 end
 
